@@ -10,6 +10,7 @@ from types import ModuleType
 from typing import TYPE_CHECKING, Any, ClassVar, cast
 
 _ALTAIR_AVAILABLE = True
+_ARCTICDB_AVAILABLE = True
 _DELTALAKE_AVAILABLE = True
 _FSSPEC_AVAILABLE = True
 _GEVENT_AVAILABLE = True
@@ -151,6 +152,7 @@ if TYPE_CHECKING:
     import subprocess
 
     import altair
+    import arcticdb
     import deltalake
     import fsspec
     import gevent
@@ -171,6 +173,7 @@ else:
 
     # heavy/optional third party libs
     altair, _ALTAIR_AVAILABLE = _lazy_import("altair")
+    arcticdb, _ARCTICDB_AVAILABLE = _lazy_import("arcticdb")
     deltalake, _DELTALAKE_AVAILABLE = _lazy_import("deltalake")
     fsspec, _FSSPEC_AVAILABLE = _lazy_import("fsspec")
     great_tables, _GREAT_TABLES_AVAILABLE = _lazy_import("great_tables")
@@ -292,6 +295,7 @@ __all__ = [
     "subprocess",
     # lazy-load third party libs
     "altair",
+    "arcticdb",
     "deltalake",
     "fsspec",
     "gevent",
@@ -308,6 +312,7 @@ __all__ = [
     "_check_for_pydantic",
     # exported flags/guards
     "_ALTAIR_AVAILABLE",
+    "_ARCTICDB_AVAILABLE",
     "_DELTALAKE_AVAILABLE",
     "_PYICEBERG_AVAILABLE",
     "_FSSPEC_AVAILABLE",
